@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        {% block head %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ site_title }}</title>
+
+        <meta content="{{ site_title }}" property="og:title">
+        <meta content="{{ site_description }}" property="og:description">
+        <meta content="sata-andagi.moe" property="og:site_name">
+        <meta name="theme-color" content="#ffcb00">
+        <meta content="{{ site_image }}" property='og:image'>
+
+        <link rel="stylesheet" href="./output.css">
+
+        {% endblock %}
+    </head>
+
+    {% block body %}
+    {% endblock %}
+
+</html>

@@ -1,0 +1,6 @@
+{
+    "name": "sata-andagi-moe",
+    "dependencies": {
+        "tailwindcss": "^3.4.1"
+    }
+}

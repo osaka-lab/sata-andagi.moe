@@ -1,0 +1,3 @@
+[submodule "assets/azumanga"]
+	path = assets/azumanga
+	url = https://github.com/sata-andagi/azumanga
