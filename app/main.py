@@ -4,13 +4,23 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from .ctx import ContextBuild
-
-from .azumanga import Azumanga
 from .utils import search
+from . import azumanga, __version__
 
-app = FastAPI()
+from .api import api
+
+app = FastAPI(
+    title = "sata-andagi.moe API", 
+    license_info = {
+        "name": "GPL-3.0"
+    }, 
+    swagger_favicon_url = "https://avatars.githubusercontent.com/u/172095443?s=200", 
+    version = f"v{__version__}",
+)
+
+app.include_router(api)
+
 templates = Jinja2Templates(directory = "./templates")
-azumanga = Azumanga()
 
 @app.get("/")
 async def home(request: Request, q: str = None):
@@ -33,4 +43,4 @@ async def home(request: Request, q: str = None):
         }
     )
 
-app.mount("/", StaticFiles(directory = "static"))           
+app.mount("/", StaticFiles(directory = "static"))
