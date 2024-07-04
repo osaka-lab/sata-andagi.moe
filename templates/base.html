@@ -3,14 +3,16 @@
 
     <head>
         {% block head %}
-        <meta charset="UTF-8">
+        <meta charset="UTF-8">              
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{ site_title }}</title>
 
         <meta content="{{ site_title }}" property="og:title">
         <meta content="{{ site_description }}" property="og:description">
         <meta content="sata-andagi.moe" property="og:site_name">
-        <meta name="theme-color" content="#ffcb00">
+        <meta name="theme-color" content="#ffcb00">     
+        <meta property="og:video" content="{{ random_embed_url }}">
+        <meta property="og:video:type" content="video.other">
 
         <link rel="stylesheet" href="./output.css">
 
@@ -20,4 +22,4 @@
     {% block body %}
     {% endblock %}
 
-</html>
+</html> 
