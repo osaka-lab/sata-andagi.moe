@@ -5,18 +5,23 @@ from fastapi.templating import Jinja2Templates
 
 from .ctx import ContextBuild
 from .utils import search
-from . import azumanga, __version__
+from . import  __version__
 
 from .api import api
+from .azumanga import Azumanga
+
+azumanga = Azumanga()
 
 app = FastAPI(
     title = "sata-andagi.moe API", 
     license_info = {
-        "name": "GPL-3.0"
+        "name": "GPL-3.0",
     }, 
     swagger_favicon_url = "https://avatars.githubusercontent.com/u/172095443?s=200", 
     version = f"v{__version__}",
 )
+
+app.azumanga = azumanga
 
 app.include_router(api)
 

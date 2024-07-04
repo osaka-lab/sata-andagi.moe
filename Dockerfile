@@ -7,7 +7,7 @@ WORKDIR /app
 COPY /app ./app
 COPY /static ./static
 COPY /templates ./templates
-COPY /config ./config
+COPY /assets ./assets
 
 COPY requirements.txt .
 COPY package.json .

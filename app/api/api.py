@@ -2,11 +2,10 @@ from fastapi import APIRouter
 from fastapi.requests import Request
 from fastapi.responses import JSONResponse
 
-from .. import azumanga
 from .. import utils
 from . import errors
 
-__all__ = ("api")
+__all__ = ("api", "set_azumanga")
 
 api = APIRouter()
 
@@ -20,7 +19,7 @@ api = APIRouter()
     }
 )
 async def search(request: Request, query: str):
-    search_results = utils.search(query.replace("%20", "  "), azumanga.osakas)
+    search_results = utils.search(query.replace("%20", "  "), request.app.azumanga.osakas)
 
     return [
         result.to_dict() for result in search_results
@@ -40,7 +39,7 @@ async def search(request: Request, query: str):
     }
 )
 async def get(request: Request, id: str):
-    result = azumanga.get(id)
+    result = request.app.azumanga.get(id)
 
     if result is not None:
         return result.to_dict()
@@ -67,7 +66,7 @@ async def get(request: Request, id: str):
     }
 )
 async def category_get(request: Request, id: str):
-    results = azumanga.categories.get(id)
+    results = request.app.azumanga.categories.get(id)
 
     if results is not None:
         return [
@@ -92,4 +91,4 @@ async def category_get(request: Request, id: str):
     }
 )
 async def categories(request: Request):
-    return list(azumanga.categories.keys())
+    return list(request.app.azumanga.categories.keys())
