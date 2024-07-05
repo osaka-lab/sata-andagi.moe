@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from fastapi.responses import FileResponse    
+from fastapi.responses import RedirectResponse    
 from fastapi.requests import Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -36,7 +36,7 @@ async def home(request: Request, q: str = None):
         osakas = azumanga.osakas
     
     if "Discordbot" in request.headers.get("User-Agent"):
-        return FileResponse("osaka/sata-andagi.mp4")
+        return RedirectResponse("https://chiyo.sata-andagi.moe/sata-andagi.mp4")
 
     context = ContextBuild( 
         request = request,
