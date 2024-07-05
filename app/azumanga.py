@@ -52,7 +52,7 @@ class Azumanga:
             print("Git Error")
 
         print(f"Git Output: {output}")
-    
+                
     def __phrase_osakas(self) -> Union[List[Osaka], Dict[str, Osaka]]:
         osakas = []
         categories = {}
@@ -74,9 +74,16 @@ class Azumanga:
 
             osakas.append(osaka)
 
-            if category not in categories:
-                categories[category] = []
+            if isinstance(category, list):
+                for cate in category:
+                    if cate not in categories:
+                        categories[cate] = []
             
-            categories[category].append(osaka)
+                    categories[cate].append(osaka)
+            else:
+                if category not in categories:
+                    categories[category] = []
+        
+                categories[category].append(osaka)
         
         return osakas, categories

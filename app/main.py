@@ -34,9 +34,6 @@ async def home(request: Request, q: str = None):
         osakas = search(q.replace("%20", " "), azumanga.osakas)
     else:
         osakas = azumanga.osakas
-    
-    if "Discordbot" in request.headers.get("User-Agent"):
-        return RedirectResponse("https://chiyo.sata-andagi.moe/sata-andagi.mp4")
 
     context = ContextBuild( 
         request = request,
