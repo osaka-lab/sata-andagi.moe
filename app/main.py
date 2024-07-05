@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import RedirectResponse
 from fastapi.requests import Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -34,6 +35,9 @@ async def home(request: Request, q: str = None):
     else:
         osakas = azumanga.osakas
     
+    if "DiscordBot" in request.headers.get("User-Agent"):
+        return RedirectResponse(azumanga.get_random().url)
+     
     context = ContextBuild(
         request = request,
         title = "Saataa Andagii",
