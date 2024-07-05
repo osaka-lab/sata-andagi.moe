@@ -15,7 +15,7 @@ azumanga = Azumanga()
 
 app = FastAPI(
     title = "sata-andagi.moe API", 
-    license_info = {
+    license_info = {    
         "name": "GPL-3.0",
     }, 
     swagger_favicon_url = "https://avatars.githubusercontent.com/u/172095443?s=200", 
@@ -35,7 +35,7 @@ async def home(request: Request, q: str = None):
     else:
         osakas = azumanga.osakas
     
-    if "DiscordBot" in request.headers.get("User-Agent"):
+    if "Discordbot" in request.headers.get("User-Agent"):
         return RedirectResponse(azumanga.get_random().url)
      
     context = ContextBuild(
