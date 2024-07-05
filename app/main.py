@@ -1,16 +1,15 @@
 from fastapi import FastAPI
-from fastapi.responses import StreamingResponse    
+from fastapi.responses import FileResponse    
 from fastapi.requests import Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from .ctx import ContextBuild
-from .utils import search, stream
+from .utils import search
 from . import  __version__
 
 from .api import api
 from .azumanga import Azumanga
-import httpx
 
 azumanga = Azumanga()
 
@@ -37,8 +36,8 @@ async def home(request: Request, q: str = None):
         osakas = azumanga.osakas
     
     if "Discordbot" in request.headers.get("User-Agent"):
-        return StreamingResponse(stream(azumanga.get_random().url), media_type='application/octet-stream')
-     
+        return FileResponse("osaka/sata-andagi.mp4")
+
     context = ContextBuild( 
         request = request,
         title = "Saataa Andagii",
