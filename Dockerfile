@@ -8,7 +8,6 @@ COPY /app ./app
 COPY /static ./static
 COPY /templates ./templates
 COPY /assets ./assets
-COPY /osaka ./osaka
 
 COPY requirements.txt .
 COPY package.json .
