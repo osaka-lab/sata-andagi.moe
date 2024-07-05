@@ -24,7 +24,7 @@ async def search(request: Request, query: str):
     return [
         result.to_dict() for result in search_results
     ]
-    
+
 @api.get(
     "/api/get/{id}",
     response_class = JSONResponse,
