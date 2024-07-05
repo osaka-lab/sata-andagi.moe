@@ -52,7 +52,7 @@ class Azumanga:
             print("Git Error")
 
         print(f"Git Output: {output}")
-                
+
     def __phrase_osakas(self) -> Union[List[Osaka], Dict[str, Osaka]]:
         osakas = []
         categories = {}
