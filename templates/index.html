@@ -7,21 +7,20 @@
 
 {% endblock %}
 
-
 {% block body %}
 <body class="mx-auto m-0">
-    <div>
-        <form id="search" class="flex items-center justify-center gap-1 max-w-sm mx-auto mt-2">   
+    <div class="mt-5">
+        <form id="search" class="flex items-center justify-center gap-1 max-w-sm mx-auto">   
             <input type="text" class="p-2 top-2 bg-goldyGreyy-300 rounded-lg" id="input-search">
             <button type="submit" class="text-black bg-ananasGold-400 p-2 rounded-lg border-white">Search</button>
         </form>
     </div>
 
-    <div class="grid grid-cols-2 mobile:grid-cols-1 justify-items-center justify-center items-center gap-5 mt-5 p-5">
+    <div class="grid grid-cols-3 mobile:grid-cols-1 gap-6 justify-items-center justify-center items-center p-5">
         {% for osaka in osakas %}
-            <a class="w-2/4 mobile:w-full text-center p-2" href="{{ osaka.url }}">
-                <video src="{{ osaka.url }}" class="rounded-lg"></video>
-                <p class="mt-1 font-bold">{{ osaka.title }}</p>
+            <a class="hover:scale-95 mobile:hover:scale-100 transition duration-500" href="{{ osaka.url }}">
+                <video class="rounded-lg hover:saturate-100 saturate-[20%] mobile:saturate-100 transition duration-300" src="{{ osaka.url }}#t=0" class="rounded-lg"></video>
+                <p class="text-lg text-center pt-1 mt-1 font-bold">{{ osaka.title }}</p>
             </a>
         {% endfor %}
     </div>
