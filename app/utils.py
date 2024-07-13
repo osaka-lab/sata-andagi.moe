@@ -6,9 +6,8 @@ if TYPE_CHECKING:
     from .osaka import Osaka
 
 from thefuzz import fuzz
-import httpx
 
-__all__ = ("search", "stream")
+__all__ = ("search",)
 
 def search(query: str, osakas: List[Osaka]) -> List[Osaka]:
     return sorted(osakas, key=lambda x: fuzz.ratio(query, x.title), reverse=True)

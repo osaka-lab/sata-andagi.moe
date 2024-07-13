@@ -86,4 +86,4 @@ class Azumanga:
         
                 categories[category].append(osaka)
         
-        return osakas, categories
+        return sorted(osakas, key=lambda x: x.title), categories

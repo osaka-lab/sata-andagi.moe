@@ -1,4 +1,3 @@
-from fastapi import Request
 from pydantic import BaseModel
 
 __all__ = (
@@ -30,7 +29,7 @@ class NotFound(BaseModel):
             "examples": [
                 {
                     "error": "NotFound",
-                    "message": f"We could not find anything with the search id 'ohmygah'!"
+                    "message": "We could not find anything with the search id 'ohmygah'!"
                 }
             ]
         }
