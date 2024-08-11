@@ -13,7 +13,7 @@ __all__ = ("api",)
 api = APIRouter()
 
 @api.get(
-    "/api/search/{query}",
+    "/api/search",
     response_class = JSONResponse,
     responses = {
         200: {
@@ -22,11 +22,7 @@ api = APIRouter()
     }
 )
 async def search(request: Request, query: str):
-    search_results = utils.search(query.replace("%20", "  "), request.app.azumanga.osakas)
-
-    return [
-        result.to_dict() for result in search_results
-    ]
+    return utils.search(query, request.app.azumanga.osakas)
 
 @api.get(
     "/api/get/{id}",
