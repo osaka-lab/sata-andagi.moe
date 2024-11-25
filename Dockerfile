@@ -1,22 +1,12 @@
-FROM python:3.11-slim-bookworm
+FROM python:3.11-alpine
 
 USER root
 
 WORKDIR /app
 
-COPY /app ./app
-COPY /static ./static
-COPY /templates ./templates
-COPY /assets ./assets
+COPY . .
 
-COPY requirements.txt .
-COPY package.json .
-COPY tailwind.config.js .
-COPY Makefile .
-
-RUN apt-get update && apt-get install -y make nodejs npm
-
-RUN make
+RUN pip install -r requirements.txt
 
 EXPOSE 8000
 ENV LISTEN_PORT = 8000

@@ -4,8 +4,8 @@ from fastapi import APIRouter
 from fastapi.requests import Request
 from fastapi.responses import JSONResponse
 
-from .. import utils
-from ..osaka import OsakaData
+from . import utils
+from .osaka import OsakaData
 from . import errors
 
 __all__ = ("api",)

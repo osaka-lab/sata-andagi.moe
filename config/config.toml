@@ -1,0 +1,16 @@
+[[projects]]
+url = "https://github.com/osaka-lab/osaka-codec"
+name = "osaka-codec"
+image = "https://cdn.ananas.moe/osaka-codec.png"
+
+[[members]]
+github = "https://github.com/THEGOLDENPRO"
+name = "Goldy"
+
+[[members]]
+github = "https://github.com/r3tr0ananas"
+name = "Ananas"
+
+[[members]]
+github = "https://github.com/emmmatech"
+name = "Emma"

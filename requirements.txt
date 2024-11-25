@@ -5,3 +5,4 @@ aiofiles
 toml
 python-decouple
 thefuzz
+fastapi-tailwind

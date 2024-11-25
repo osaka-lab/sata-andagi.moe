@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+
+<link rel="stylesheet" href="./output.css">
+
+{% endblock %}
+
+{% block body %}
+<body class="mx-auto m-0 h-full">
+    <nav class="flex justify-center items-center gap-20 p-10">
+        <a class="font-bold" href="/">/</a>
+    </nav>
+
+    <div class="flex flex-col justify-center items-center gap-6 min-h-[80vh]">
+        <p class="font-bold text-2xl">Members</p>
+
+        <div class="flex mobile:flex-col gap-6">
+            {% for member in members %}
+                <a class="text-center" href="{{ member.github }}">
+                    <img src="{{ member.github }}.png" class="w-[200px] mx-auto">
+                    <p class="font-bold text-2xl">{{ member.name }}</p>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+{% endblock %}

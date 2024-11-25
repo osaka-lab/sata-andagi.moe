@@ -9,7 +9,7 @@ import random
 import subprocess
 from pathlib import Path
 from .osaka import Osaka
-from .constant import GIT_PATH
+from ..constant import GIT_PATH
 
 class Azumanga:
     """A class for interfacing with the Azumanga TOML Files."""

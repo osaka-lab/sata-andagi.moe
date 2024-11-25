@@ -9,29 +9,48 @@
 
 {% block body %}
 <body class="mx-auto m-0">
-    <div class="mt-5">
-        <form id="search" class="flex items-center justify-center gap-1 max-w-sm mx-auto">   
-            <input type="text" class="p-2 top-2 bg-goldyGreyy-300 rounded-lg" id="input-search">
-            <button type="submit" class="text-black bg-ananasGold-400 p-2 rounded-lg border-white">Search</button>
-        </form>
-    </div>
+    <nav class="flex justify-center items-center gap-20 p-10">
+        <a class="font-bold" href="/members">/members</a>
+        <a class="font-bold" href="/memes">/memes</a>
+    </nav>
 
-    <div class="grid grid-cols-3 mobile:grid-cols-1 tablet:grid-cols-2 gap-6 justify-items-center justify-center items-center p-5">
-        {% for osaka in osakas %}
-            <a class="hover:scale-95 mobile:hover:scale-100 transition duration-500" href="{{ osaka.url }}">
-                <video class="rounded-lg hover:saturate-100 saturate-[20%] mobile:saturate-100 
-                tablet:saturate-100 transition duration-300" src="{{ osaka.url }}#t=0" class="rounded-lg"></video>
-                <p class="text-lg text-center pt-1 mt-1 font-bold">{{ osaka.title }}</p>
-            </a>
-        {% endfor %}
-    </div>
+    <div class="grid gap-6">
+        <div class="text-center">
+            <img src="https://github.com/osaka-lab.png" class="rounded-full w-80 mx-auto mb-3">
 
-    <footer class="fixed w-full bottom-0 tracking-widest font-semibold">
-        <div class="flex flex-row justify-center items-center gap-5 text-goldyPink">
-            <a href="https://github.com/sata-andagi/sata-andagi.moe">Source Code</a>
+            <a href="https://github.com/osaka-lab" class="text-2xl font-bold">Osaka-Lab</a>
+
+            <div class="font-medium text-center mt-5">
+                <p>Hello Everynyan,</p>
+                <a href="/members">We</a> make software around the anime/manga: 
+                <a href="https://en.wikipedia.org/wiki/Azumanga_Daioh">Azumanga Daioh</a>
+            </div>    
         </div>
-    </footer>
+        <div class="pt-[40px]">
+            <h1 class="font-bold text-4xl text-center">Projects</h1>
+            
+            <div class="grid grid-cols-2 mobile:grid-cols-1 xl:m-10 text-center mt-5 gap-10">
+    
+                {% for project in projects %}
+                    <div>
+                        <a class="flex justify-center items-center" href="{{ project.url }}">
+                            <img class="rounded-lg opacity-40 hover:opacity-100 mobile:opacity-100
+                            sepia hover:sepia-0 mobile:sepia-0 transition duration-300 mx-auto" src="{{ project.image }}" alt="{{ project.name }}">
+                        </a>
+                        <h3 class="text-lg text-center pt-1 mt-1 font-bold">{{ project.name }}</h3>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
 
-    <script src="/scripts/script.js"></script>
+        <footer class="relative bottom-0 left-1/2 -translate-x-1/2 text-center mt-10 text-white">
+            <p class="text-sm">
+                We are not affiliated with, authorized, endorsed by, or officially connected to the creators or publishers of <em>Azumanga Daioh</em>.
+
+                We are just fans.
+            </p>
+        </footer>
+
+    </div>
 </body>
 {% endblock %}

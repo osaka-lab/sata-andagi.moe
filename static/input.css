@@ -13,6 +13,10 @@
         @apply font-medium;
     }
 
+    a {
+        @apply text-ananas-100 transition duration-700 hover:text-ananas-800
+    }
+
     strong {
         @apply font-[900];
     }
