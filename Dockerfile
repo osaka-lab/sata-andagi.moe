@@ -7,7 +7,7 @@ WORKDIR /app
 COPY . .
 
 RUN apk update && apk add git make
-RUN pip install -r requirements.txt
+RUN make
 
 EXPOSE 8000
 ENV LISTEN_PORT=8000
